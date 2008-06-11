@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="a6c6cfaa-3b45-084a-bd3b-577677af2584" kpf_version="4" name="Business-DK-Phonenumber.kpf">
+<preference-set idref="a6c6cfaa-3b45-084a-bd3b-577677af2584">
+  <string id="import_exclude_matches">*.*~;*.bak;*.tmp;CVS;.#*;*.pyo;*.pyc;.svn;*%*;_build;blib;cover_db;.DS_Store;</string>
+  <string id="import_include_matches"></string>
+  <boolean id="import_live">1</boolean>
+  <boolean id="import_recursive">1</boolean>
+  <string id="import_type">useFolders</string>
+  <string id="lastTestPlanName_pref">Business-DK-Phonenumber.kpf - test plan # 2 (POD)</string>
+  <string id="perlExtraPaths">lib:blib/lib</string>
+<preference-set id="testPlans">
+<preference-set id="Business-DK-Phonenumber.kpf - test plan # 2 (POD)">
+  <string id="command_line">./Build test</string>
+  <string relative="url" id="directory"></string>
+  <string id="language">Perl - TAP (*.t)</string>
+</preference-set>
+<preference-set id="Business-DK-Phonenumber.kpf - test plan # 3 (POD coverage)">
+  <string id="command_line">./Build test --verbose 1 --test_files t/pod-coverage.t</string>
+  <string relative="url" id="directory"></string>
+  <string id="language">Perl</string>
+</preference-set>
+</preference-set>
+</preference-set>
+<preference-set idref="a6c6cfaa-3b45-084a-bd3b-577677af2584/lib/Business/DK/Phonenumber.pm">
+<preference-set id="Invocations">
+<preference-set id="default">
+  <string id="cookieparams"></string>
+  <string id="cwd"></string>
+  <long id="debugger.io-port">9011</long>
+  <string id="documentRoot"></string>
+  <string id="executable-params"></string>
+  <string relative="path" id="filename">lib/Business/DK/Phonenumber.pm</string>
+  <string id="getparams"></string>
+  <string id="language">Perl</string>
+  <string id="mpostparams"></string>
+  <string id="params"></string>
+  <string id="postparams"></string>
+  <string id="posttype">application/x-www-form-urlencoded</string>
+  <string id="request-method">GET</string>
+  <boolean id="show-dialog">1</boolean>
+  <boolean id="sim-cgi">0</boolean>
+  <boolean id="use-console">0</boolean>
+  <string id="userCGIEnvironment"></string>
+  <string id="userEnvironment"></string>
+  <string id="warnings">enabled</string>
+</preference-set>
+</preference-set>
+  <string id="lastInvocation">default</string>
+</preference-set>
+<preference-set idref="a6c6cfaa-3b45-084a-bd3b-577677af2584/t/Business/DK/Phonenumber/phonenumber.t">
+<preference-set id="Invocations">
+<preference-set id="default">
+  <string id="cookieparams"></string>
+  <string id="cwd"></string>
+  <long id="debugger.io-port">9011</long>
+  <string id="documentRoot"></string>
+  <string id="executable-params">-I /Users/jonasbn/develop/cvs-logicLAB/modules/Business-DK-Phonenumber/blib/lib</string>
+  <string relative="path" id="filename">t/Business/DK/Phonenumber/phonenumber.t</string>
+  <string id="getparams"></string>
+  <string id="language">Perl</string>
+  <string id="mpostparams"></string>
+  <string id="params"></string>
+  <string id="postparams"></string>
+  <string id="posttype">application/x-www-form-urlencoded</string>
+  <string id="request-method">GET</string>
+  <boolean id="show-dialog">1</boolean>
+  <boolean id="sim-cgi">0</boolean>
+  <boolean id="use-console">0</boolean>
+  <string id="userCGIEnvironment"></string>
+  <string id="userEnvironment"></string>
+  <string id="warnings">enabled</string>
+</preference-set>
+</preference-set>
+  <string id="lastInvocation">default</string>
+</preference-set>
+<preference-set idref="a6c6cfaa-3b45-084a-bd3b-577677af2584/t/Business/DK/Phonenumber/template.t">
+<preference-set id="Invocations">
+<preference-set id="default">
+  <string id="cookieparams"></string>
+  <string id="cwd"></string>
+  <long id="debugger.io-port">9011</long>
+  <string id="documentRoot"></string>
+  <string id="executable-params">-I /Users/jonasbn/develop/cvs-logicLAB/modules/Business-DK-Phonenumber/blib/lib</string>
+  <string relative="path" id="filename">t/Business/DK/Phonenumber/template.t</string>
+  <string id="getparams"></string>
+  <string id="language">Perl</string>
+  <string id="mpostparams"></string>
+  <string id="params"></string>
+  <string id="postparams"></string>
+  <string id="posttype">application/x-www-form-urlencoded</string>
+  <string id="request-method">GET</string>
+  <boolean id="show-dialog">1</boolean>
+  <boolean id="sim-cgi">0</boolean>
+  <boolean id="use-console">0</boolean>
+  <string id="userCGIEnvironment"></string>
+  <string id="userEnvironment"></string>
+  <string id="warnings">enabled</string>
+</preference-set>
+</preference-set>
+  <string id="lastInvocation">default</string>
+</preference-set>
+</project>

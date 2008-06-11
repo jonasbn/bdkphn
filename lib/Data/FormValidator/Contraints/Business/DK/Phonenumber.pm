@@ -1,0 +1,134 @@
+package Data::FormValidator::Contraints::Business::DK::Phonenumber;
+
+# $Id$
+
+use strict;
+use warnings;
+use vars qw($VERSION @EXPORT_OK);
+use Business::DK::Phonenumber qw(validate render);
+use base qw(Exporter);
+
+@EXPORT_OK = qw(valid_dk_phonenumber match_dk_phonenumber);
+
+use constant VALID   => 1;
+use constant INVALID => undef;
+
+sub valid_dk_phonenumber {
+    return sub {
+        my $dfv = shift;
+
+        $dfv->name_this('valid_dk_phonenumber');
+
+        my $phonenumber = $dfv->get_current_constraint_value();
+
+        if ( validate($phonenumber) ) {
+            return VALID;
+        } else {
+            return INVALID;
+        }
+        }
+}
+
+sub match_dk_phonenumber {
+    my ( $dfv, $format ) = @_;
+
+    my $phonenumber = ref $dfv ? $dfv->get_current_constraint_value : $dfv;
+
+    my ($untainted_phonenumber) = render($phonenumber);
+
+    return $untainted_phonenumber;
+}
+
+1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+Data::FormValidator::Business::DK::Phonenumber - a DFV constraints wrapper
+
+=head1 VERSION
+
+This documentation describes version 0.01
+
+=head1 SYNOPSIS
+
+    use Data::FormValidator::Business::DK::Phonenumber qw(valid_dk_phonenumber);
+
+=head1 DESCRIPTION
+
+=head1 SUBROUTINES AND METHODS
+
+=head2 valid_dk_phonenumber
+
+=head2 match_dk_phonenumber
+
+=head1 DIAGNOSTICS
+
+=over
+
+=item * 
+
+=back
+
+=head1 CONFIGURATION AND ENVIRONMENT
+
+=head1 DEPENDENCIES
+
+=over
+
+=item * L<Business::DK::Phonenumber>
+
+=back
+
+=head1 INCOMPATIBILITIES
+
+=head1 BUGS AND LIMITATIONS
+
+=head1 TEST AND QUALITY
+
+=head1 TODO
+
+=over
+
+=item *
+
+=back
+
+=head1 SEE ALSO
+
+=over
+
+=item * L<Data::FormValidator>
+
+=back
+
+=head1 BUG REPORTING
+
+Please report issues via CPAN RT:
+
+http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-Phonenumber
+
+or by sending mail to
+
+bug-Business-DK-Phonenumber@rt.cpan.org
+
+=head1 AUTHOR
+
+Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
+
+=head1 COPYRIGHT
+
+Data-FormValidator-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008
+
+=head1 LICENSE
+
+Data-FormValidator-Business-DK-Phonenumber is released under the artistic license
+
+The distribution is licensed under the Artistic License, as specified
+by the Artistic file in the standard perl distribution
+(http://www.perl.com/language/misc/Artistic.html).
+
+=cut

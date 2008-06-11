@@ -1,0 +1,24 @@
+---
+name: Business-DK-Phonenumber
+version: 0.01
+author:
+  - 'Jonas B. Nielsen, (jonasbn) <jonasbn@cpan.org>'
+abstract: Module to validate and format Danish telephonenumbers
+license: artistic
+resources:
+  license: http://opensource.org/licenses/artistic-license.php
+requires:
+  Carp: 0
+  Exporter: 0
+build_requires:
+  Test::More: 0
+provides:
+  Business::DK::Phonenumber:
+    file: lib/Business/DK/Phonenumber.pm
+    version: 0.01
+  Data::FormValidator::Contraints::Business::DK::Phonenumber:
+    file: lib/Data/FormValidator/Contraints/Business/DK/Phonenumber.pm
+generated_by: Module::Build version 0.2808
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
