@@ -14,6 +14,7 @@ my $build = Module::Build->new(
     recursive_test_files => 1,
     build_requires => {
         'Test::More' => 0, #core
+		'Test::Taint' => 0,
     },
 	requires => {
 	    'Exporter'         => 0, #core
