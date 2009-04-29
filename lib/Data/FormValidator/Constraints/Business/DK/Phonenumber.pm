@@ -1,4 +1,4 @@
-package Data::FormValidator::Contraints::Business::DK::Phonenumber;
+package Data::FormValidator::Constraints::Business::DK::Phonenumber;
 
 # $Id$
 
