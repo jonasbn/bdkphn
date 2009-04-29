@@ -6,7 +6,7 @@ use Test::More qw(no_plan);
 
 use Data::FormValidator;
 
-use_ok('Data::FormValidator::Contraints::Business::DK::Phonenumber', qw(valid_dk_phonenumber));
+use_ok('Data::FormValidator::Constraints::Business::DK::Phonenumber', qw(valid_dk_phonenumber));
 
 my $dfv_profile = {
     required => [qw(phonenumber)],

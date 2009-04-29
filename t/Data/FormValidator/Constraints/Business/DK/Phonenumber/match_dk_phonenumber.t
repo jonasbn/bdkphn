@@ -13,7 +13,7 @@ taint_start();
 
 taint_checking_ok('Is taint checking on'); 
 
-use_ok('Data::FormValidator::Contraints::Business::DK::Phonenumber', qw(valid_dk_phonenumber));
+use_ok('Data::FormValidator::Constraints::Business::DK::Phonenumber', qw(valid_dk_phonenumber));
 
 my $dfv_profile = {
     required => [qw(phonenumber)],
