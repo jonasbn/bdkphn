@@ -156,13 +156,18 @@ sub generate {
         $amount--;
     }
 
-    return \@phonenumbers;
+    return @phonenumbers;
 }
 
 sub _generate {
     my ( $self, $template ) = @_;
 
-    return $self->render( rand(99999999), $template );
+    if ( ref $self ) {
+        return $self->render( rand(99999999), $template );
+    } else {
+        $template = $self;
+        return render( rand(99999999), $template );
+    }
 }
 
 1;

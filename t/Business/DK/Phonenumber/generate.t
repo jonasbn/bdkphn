@@ -8,5 +8,5 @@ use_ok('Business::DK::Phonenumber');
 ok(my @phonenumbers = Business::DK::Phonenumber->generate());
 
 foreach my $phonenumber (@phonenumbers) {
-    like($phonenumber, qr/^\d{8}$/);
+    like($phonenumber, qr/^\+45 \d{8}$/);
 }
