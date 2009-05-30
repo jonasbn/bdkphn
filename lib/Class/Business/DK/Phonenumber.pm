@@ -1,93 +1,102 @@
-package Business::DK::Phonenumber;
+package Class::Business::DK::Phonenumber;
 
 # $Id$
 
 use strict;
 use warnings;
-use vars qw($VERSION @EXPORT_OK);
+use vars qw($VERSION);
 use Carp qw(croak);
-use base qw(Exporter);
+use Business::DK::Phonenumber qw(validate render);
 
 $VERSION   = '0.01';
-@EXPORT_OK = qw(validate render);
 
-use constant TRUE             => 1;
-use constant FALSE            => 0;
+use overload "" => \&render;
+
 use constant DK_PREFIX        => '+45';
 use constant DIGITS           => 8;
 use constant DEFAULT_TEMPLATE => DK_PREFIX . ' %'.DIGITS.'d';
-use constant SEED             => 99999999;
+use constant TRUE             => 1;
+use constant FALSE            => 0;
 
-sub validate {
-    my ( $self, $phonenumber ) = @_;
+sub new {
+    my ( $class, $params ) = @_;
 
-    if ( not ref $self ) {
-        $phonenumber = $self;
+    my $self = bless {
+        phonenumber => 0,
+        template    => DEFAULT_TEMPLATE,
+        prefix      => DK_PREFIX,
+        },
+        $class || ref $class;
+
+    if ( $params->{phonenumber} ) {
+        $self->phonenumber( $params->{phonenumber} )
+            or croak 'phonenumber not in recognisable format';
+    } else {
+        croak 'phonenumber parameter is mandatory';
     }
 
-    $phonenumber =~ s/\s//xmg;
+    if ( $params->{template} ) {
+        $self->template( $params->{template} )
+            or croak 'template not in recognisable format';
+    }
 
-    if ( $phonenumber =~ m/\A(
-            (?:\+)(?:45)(?:\d{8})| #+4512345678
-            (?:45)(?:\d{8})|       #4512345678
-            (?:\d{8})              #12345678
-        )\b/gmx ) {
+    $self->{prefix} = $params->{prefix};
+
+    return $self;
+}
+
+sub phonenumber {
+    my ( $self, $phonenumber, $template ) = @_;
+
+    if ($phonenumber) {
+        if ( validate($phonenumber) ) {
+            $self->{phonenumber} = $phonenumber;
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    } else {
+        if ($template) {
+            if ( $self->_template($template) ) {
+                return $self->render($template);
+            } else {
+                croak 'template not in recognisable format';
+            }
+        } else {
+            return $self->render();
+        }
+    }
+}
+
+sub template {
+    my ( $self, $template ) = @_;
+
+    if ($template) {
+        if ( $self->_validate_template($template) ) {
+            $self->{template} = $template;
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    } else {
+        return $self->{template};
+    }
+}
+
+sub _validate_template {
+    my ( $self, $template ) = @_;
+
+    my @digits = $template =~ m/%(\d)+d/xmg;
+
+    my $sum = 0;
+    foreach my $digit (@digits) {
+        $sum += $digit;
+    }
+
+    if ( $sum == DIGITS ) {
         return TRUE;
     } else {
         return FALSE;
-    }
-}
-
-sub render {
-    my ( $self, $phonenumber, $template ) = @_;
-
-    if ( not ref $self ) {
-        $template    = $phonenumber;
-        $phonenumber = $self;
-    } else {
-        $template = $self->{template};
-
-        if ( not $phonenumber ) {
-            $phonenumber = $self->{phonenumber};
-        }
-    }
-
-    return sprintf $template, $phonenumber;
-
-}
-
-sub generate {
-    my ( $self, $template, $amount ) = @_;
-
-    if ( not $amount ) {
-        $amount = 1;
-    }
-
-    if ( not $template ) {
-        $template = DEFAULT_TEMPLATE;
-    }
-
-    my @phonenumbers;
-    while ($amount) {
-        if ( ref $self ) {
-            push @phonenumbers, $self->_generate($template);
-        } else {
-            push @phonenumbers, _generate($template);
-        }
-        $amount--;
-    }
-
-    return @phonenumbers;
-}
-
-sub _generate {
-    my ( $self, $template ) = @_;
-
-    if ( ref $self ) {
-        return $self->render( rand(SEED), $template );
-    } else {
-        $template = $self;
-        return render( rand(SEED), $template );
     }
 }
 
