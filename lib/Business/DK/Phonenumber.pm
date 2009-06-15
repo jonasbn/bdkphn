@@ -193,7 +193,7 @@ This is the actual generating method used by L</generate>.
 
 =over
 
-=item * 
+=item * No special diagnostics at this time
 
 =back
 
