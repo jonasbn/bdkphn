@@ -102,7 +102,7 @@ __END__
 
 =head1 NAME
 
-Business::DK::Phonenumber - module to validate and format Danish telephonenumbers
+Business::DK::Phonenumber - Danish telephonenumber validator/formatter
 
 =head1 VERSION
 
