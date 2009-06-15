@@ -8,7 +8,7 @@
   <boolean id="import_recursive">1</boolean>
   <string id="import_type">useFolders</string>
   <string id="lastTestPlanName_pref">Business-DK-Phonenumber.kpf - test plan # 2 (POD)</string>
-  <string id="perlExtraPaths">lib:blib/lib</string>
+  <string id="perlExtraPaths">/Users/jonasbn/develop/svn-Jira-logicLAB/BDKPHN/lib:/Users/jonasbn/develop/svn-Jira-logicLAB/Business-DK-Phonenumber/blib/lib</string>
 <preference-set id="testPlans">
 <preference-set id="Business-DK-Phonenumber.kpf - test plan # 2 (POD)">
   <string id="command_line">./Build test</string>
@@ -30,7 +30,7 @@
   <long id="debugger.io-port">9011</long>
   <string id="documentRoot"></string>
   <string id="executable-params"></string>
-  <string relative="path" id="filename">lib/Business/DK/Phonenumber.pm</string>
+  <string id="filename">/Users/jonasbn/develop/svn-Jira-logicLAB/BDKPHN/lib/Business/DK/Phonenumber.pm</string>
   <string id="getparams"></string>
   <string id="language">Perl</string>
   <string id="mpostparams"></string>
@@ -56,7 +56,7 @@
   <long id="debugger.io-port">9011</long>
   <string id="documentRoot"></string>
   <string id="executable-params">-I /Users/jonasbn/develop/cvs-logicLAB/modules/Business-DK-Phonenumber/blib/lib</string>
-  <string relative="path" id="filename">t/Business/DK/Phonenumber/phonenumber.t</string>
+  <string id="filename">/Users/jonasbn/develop/svn-Jira-logicLAB/BDKPHN/t/Business/DK/Phonenumber/phonenumber.t</string>
   <string id="getparams"></string>
   <string id="language">Perl</string>
   <string id="mpostparams"></string>
@@ -82,7 +82,7 @@
   <long id="debugger.io-port">9011</long>
   <string id="documentRoot"></string>
   <string id="executable-params">-I /Users/jonasbn/develop/cvs-logicLAB/modules/Business-DK-Phonenumber/blib/lib</string>
-  <string relative="path" id="filename">t/Business/DK/Phonenumber/template.t</string>
+  <string id="filename">/Users/jonasbn/develop/svn-Jira-logicLAB/BDKPHN/t/Business/DK/Phonenumber/template.t</string>
   <string id="getparams"></string>
   <string id="language">Perl</string>
   <string id="mpostparams"></string>

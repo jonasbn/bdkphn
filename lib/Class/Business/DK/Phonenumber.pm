@@ -8,13 +8,14 @@ use vars qw($VERSION);
 use Carp qw(croak);
 use Business::DK::Phonenumber qw(validate render);
 
-$VERSION   = '0.01';
+$VERSION = '0.01';
 
+## no critic (ValuesAndExpressions::ProhibitEmptyQuotes, ValuesAndExpressions::ProhibitInterpolationOfLiterals])
 use overload "" => \&render;
 
 use constant DK_PREFIX        => '+45';
 use constant DIGITS           => 8;
-use constant DEFAULT_TEMPLATE => DK_PREFIX . ' %'.DIGITS.'d';
+use constant DEFAULT_TEMPLATE => DK_PREFIX . ' %' . DIGITS . 'd';
 use constant TRUE             => 1;
 use constant FALSE            => 0;
 
@@ -86,7 +87,7 @@ sub template {
 sub _validate_template {
     my ( $self, $template ) = @_;
 
-    my @digits = $template =~ m/%(\d)+d/xmg;
+    my @digits = $template =~ m/%(\d)+d/sxmg;
 
     my $sum = 0;
     foreach my $digit (@digits) {
@@ -108,7 +109,7 @@ __END__
 
 =head1 NAME
 
-Business::DK::Phonenumber - module to validate and format Danish telephonenumbers
+Class::Business::DK::Phonenumber - class to model, validate and format Danish telephonenumbers
 
 =head1 VERSION
 
@@ -116,55 +117,29 @@ This documentation describes version 0.01
 
 =head1 SYNOPSIS
 
-    #Procedural interface
-    use Business::DK::Phonenumber qw(validate render);
-    
-    #Validation
-    if (Business::DK::Phonenumber->validate($phonenumber)) { ... }
-    
-    #Default format
-    print Business::DK::Phonenumber->render($phonenum);
-    # +45 12 34 56 78
-    
-    #Brief human readable Danish phonenumber format with international prefix
-    print Business::DK::Phonenumber->render($phonenum, '+%d2 %d8');
-    # +45 12345678
-    
-    #Brief human readable Danish phonenumber format
-    print Business::DK::Phonenumber->render($phonenum, '%d8');
-    # 12345678
-    
-    #Normal human readable Danish phonenumber format
-    print Business::DK::Phonenumber->render($phonenum, '%d2 %d2 %d2 %d2');
-    # 12 34 56 78
-    
-    #Long human readable Danish phonenumber format with international prefix
-    print Business::DK::Phonenumber->render($phonenum, '+%d2 %d2 %d2 %d2 %d2');
-    # +45 12 34 56 78, default format
-    
-    #OOP interface
-    use Business::DK::Phonenumber;
+    #OOP
+    use Class::Business::DK::Phonenumber;
     
     #Constructor
-    my $phonenumber = Business::DK::Phonenumber->new('+45 12345678');
+    my $phonenumber = Class::Business::DK::Phonenumber->new('+45 12345678');
     
     #Brief human readable Danish phonenumber format with international prefix
-    print Business::DK::Phonenumber->render('+%d2 %d8');
+    print Class::Business::DK::Phonenumber->render('+%d2 %d8');
     
     #a brief form validating a stripping everything
     my $phonenum =
-        Business::DK::Phonenumber->new('+45 12 34 56 78')->render('%d8');
+        Class::Business::DK::Phonenumber->new('+45 12 34 56 78')->render('%d8');
     # 12345678
     
     #for MSISDN like representation with protocol prefix
     my $phonenum =
-        Business::DK::Phonenumber->new('+45 12 34 56 78')->render('GSM%d10');
+        Class::Business::DK::Phonenumber->new('+45 12 34 56 78')->render('GSM%d10');
     # GSM4512345678
     
     #for dialing Denmark with international country prefix and international
     #calling code for calling outside Denmark 00
     my $phonenum =
-        Business::DK::Phonenumber->new('12 34 56 78')->render('00%d10');
+        Class::Business::DK::Phonenumber->new('12 34 56 78')->render('00%d10');
     # 004512345678
 
 =head1 DESCRIPTION
@@ -195,31 +170,11 @@ The module can be utilized in both procedural and object-oriented manner.
 
 =head1 SUBROUTINES AND METHODS
 
-The following subroutines are to be used in a procedural manner.
-
-=head2 validate($phonenumber)
-
-This subroutine takes a string and validated whether it is a Danish phonenumber.
-
-Returns 1 (true) or 0 (false), depending on validity.
-
-=head2 render($phonenumber, $template)
-
-=head2 generate($template, $amount)
-
-This subroutine takes a string representing a phone number template and generates
-the number specified by second argument: amount. If no amount is specified 1
-is returned.
-
-The subroutine returns an array, no matter what amount is specified.
-
-=head2 The following methods are to be used in a OOP manner.
-
 =head2 new({ phonenumber => $phonenumber, template => $template })
 
-For validphonenumber formatting please refer to L</phonenumber>
+For validphonenumber formatting please refer to L</phonenumber>.
 
-=head2 phonenumber($phonenumber)
+=head2 phonenumber($phonenumber, $template)
 
 This is accessor to the phonenumber attribute for a Business::DK::Phonenumber
 object. Provided with a valid phonenumber parameter the object's phonenumber
@@ -228,7 +183,7 @@ attribute is set.
 If the accessor is not provided with a phonenumber parameter, the one defined is
 in the object is returned.
 
-See also: L</_phonenumber>, which is used internally to validate the phonenumber
+See also: L<Business::DK::Phonenumber/validate>, which is used internally to validate the phonenumber
 parameter.
 
 Valid phonenumbers have to abide to the following formatting:
@@ -257,20 +212,30 @@ is set.
 If the accessor is not provided with a template parameter, the one defined is in
 the object is returned.
 
-See also: L</_template>, which is used internally to validate the template
-parameter.
+See also: L</_validate_template>, which is used internally to validate the
+template parameter.
 
 =head1 PRIVATE METHODS
 
-=head2 _phonenumber()
+=head2 _validate_template
 
-=head2 _template()
+This method is used internally to validate template parameters. Please refer to
+Perl's sprintf for documentation.
 
 =head1 DIAGNOSTICS
 
 =over
 
-=item * 
+=item * phonenumber not in recognisable format, the phone number provided to
+the constructor is not parsable. Please evaluate what you are attempting to
+feed to the constructor.
+
+=item * phonenumber parameter is mandatory for the constructor, please specify
+the phonenumber parameter to the constructor in order to continue.
+
+=item * template not in recognisable format, the template provided to the
+constructor is not in a parsable format, please evaluate what you attempting to
+feed to the constructor.
 
 =back
 
@@ -287,13 +252,30 @@ object oriented interface.
 
 =item * L<Exporter>
 
+=item * L<Business::DK::Phonenumber>
+
 =back
 
 =head1 INCOMPATIBILITIES
 
+No known incompatibilities at this time.
+
 =head1 BUGS AND LIMITATIONS
 
+No known bugs or limitations at this time.
+
 =head1 TEST AND QUALITY
+
+=over
+
+=item * The L<Perl::Critic::Policy::ValuesAndExpressions::RequireNumberSeparators>
+policy has been disabled. We are working with phonenumbers, strings consisting primarily of number, so not special interpretation or calculative behaviour is needed.
+
+=item * L<Perl::Critic::Policy::ValuesAndExpressions::ProhibitConstantPragma> policy has been disabled. I like constants.
+
+=item * L<Perl::Critic::Policy::InputOutput::RequireBracedFileHandleWithPrint> policy has been disabled for now should be revisited at some point.
+
+=back
 
 =head1 TODO
 
