@@ -10,7 +10,7 @@ use Business::DK::Phonenumber qw(validate render);
 
 $VERSION = '0.01';
 
-## no critic (ValuesAndExpressions::ProhibitEmptyQuotes, ValuesAndExpressions::ProhibitInterpolationOfLiterals])
+## no critic (ValuesAndExpressions::ProhibitEmptyQuotes, ValuesAndExpressions::ProhibitInterpolationOfLiterals)
 use overload "" => \&render;
 
 use constant DK_PREFIX        => '+45';
@@ -31,14 +31,16 @@ sub new {
 
     if ( $params->{phonenumber} ) {
         $self->phonenumber( $params->{phonenumber} )
-            or croak 'phonenumber not in recognisable format';
+            or croak
+            "phonenumber >$params->{phonenumber}< not in recognisable format";
     } else {
         croak 'phonenumber parameter is mandatory';
     }
 
     if ( $params->{template} ) {
         $self->template( $params->{template} )
-            or croak 'template not in recognisable format';
+            or croak
+            "template >$params->{template}< not in recognisable format";
     }
 
     $self->{prefix} = $params->{prefix};
@@ -50,18 +52,30 @@ sub phonenumber {
     my ( $self, $phonenumber, $template ) = @_;
 
     if ($phonenumber) {
+
+        my $tmp_phonenumber = $self->{phonenumber};
+
         if ( validate($phonenumber) ) {
             $self->{phonenumber} = $phonenumber;
+
+            if ( $self->template($template) ) {
+                return TRUE;
+            } else {
+                $self->{phonenumber} = $tmp_phonenumber;
+
+                croak "template >$template< not in recognisable format";
+            }
+
             return TRUE;
         } else {
             return FALSE;
         }
     } else {
         if ($template) {
-            if ( $self->_template($template) ) {
-                return $self->render($template);
+            if ( $self->validate_template($template) ) {
+                return $self->render( undef, $template );
             } else {
-                croak 'template not in recognisable format';
+                croak "template >$template< not in recognisable format";
             }
         } else {
             return $self->render();
@@ -73,7 +87,7 @@ sub template {
     my ( $self, $template ) = @_;
 
     if ($template) {
-        if ( $self->_validate_template($template) ) {
+        if ( $self->validate_template($template) ) {
             $self->{template} = $template;
             return TRUE;
         } else {
@@ -84,7 +98,7 @@ sub template {
     }
 }
 
-sub _validate_template {
+sub validate_template {
     my ( $self, $template ) = @_;
 
     my @digits = $template =~ m/%(\d)+d/sxmg;
@@ -212,12 +226,12 @@ is set.
 If the accessor is not provided with a template parameter, the one defined is in
 the object is returned.
 
-See also: L</_validate_template>, which is used internally to validate the
+See also: L</validate_template>, which is used internally to validate the
 template parameter.
 
 =head1 PRIVATE METHODS
 
-=head2 _validate_template
+=head2 validate_template
 
 This method is used internally to validate template parameters. Please refer to
 Perl's sprintf for documentation.
