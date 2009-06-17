@@ -9,7 +9,7 @@ use Carp qw(croak);
 use base qw(Exporter);
 
 $VERSION   = '0.01';
-@EXPORT_OK = qw(validate render);
+@EXPORT_OK = qw(validate render generate);
 
 use constant TRUE             => 1;
 use constant FALSE            => 0;
@@ -47,16 +47,40 @@ sub render {
     if ( not ref $self ) {
         $template    = $phonenumber;
         $phonenumber = $self;
+        $self        = undef;
+
     } else {
-        $template = $self->{template} || DEFAULT_TEMPLATE;
+
+        if ($template) {
+            if ( ref $self ) {
+                $self->validate_template($template);
+            } else {
+                Class::Business::DK::Phonenumber::validate_template(
+                    $template);
+            }
+        }
+
+        $template = $template || $self->{template} || DEFAULT_TEMPLATE;
 
         if ( not $phonenumber ) {
             $phonenumber = $self->{phonenumber};
         }
     }
 
-    return sprintf $template, $phonenumber;
+    my @subs = $template =~ m/%(\d)+d/sxmg;
 
+    my $sum        = 0;
+    my @phonesplit = ();
+    my $phonetmp   = $phonenumber;
+
+    foreach my $sub (@subs) {
+        $sum += $sub;
+        push @phonesplit, substr $phonetmp, 0, $sub, q{};
+    }
+
+    my $output = sprintf $template, @phonesplit;
+
+    return $output;
 }
 
 sub generate {
@@ -70,15 +94,16 @@ sub generate {
         $template = DEFAULT_TEMPLATE;
     }
 
-    my @phonenumbers;
-    while ($amount) {
+    my %phonenumbers;
+    while ( keys %phonenumbers < $amount ) {
         if ( ref $self ) {
-            push @phonenumbers, $self->_generate($template);
+            $phonenumbers{ $self->_generate($template) }++;
         } else {
-            push @phonenumbers, _generate($template);
+            $phonenumbers{ _generate($template) }++;
         }
-        $amount--;
     }
+
+    my @phonenumbers = keys %phonenumbers;
 
     return @phonenumbers;
 }
@@ -86,11 +111,15 @@ sub generate {
 sub _generate {
     my ( $self, $template ) = @_;
 
+    my $random_phone = int rand SEED;
+    my $phonenumber = sprintf '%.8d', $random_phone;
+
     if ( ref $self ) {
-        return $self->render( rand(SEED), $template );
+        return $self->render( $phonenumber, $template );
     } else {
         $template = $self;
-        return render( rand(SEED), $template );
+
+        return render( $phonenumber, $template );
     }
 }
 
