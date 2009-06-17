@@ -131,7 +131,7 @@ __END__
 
 =head1 NAME
 
-Business::DK::Phonenumber - Danish telephonenumber validator/formatter
+Business::DK::Phonenumber - Danish telephone number validator/formatter
 
 =head1 VERSION
 
@@ -148,22 +148,18 @@ This documentation describes version 0.01
     print Business::DK::Phonenumber->render($phonenum);
     # +45 12 34 56 78
     
-    #Brief human readable Danish phonenumber format with international prefix
+    #Brief human readable Danish phone number format with international prefix
     print Business::DK::Phonenumber->render($phonenum, '+%d2 %d8');
     # +45 12345678
     
-    #Brief human readable Danish phonenumber format
+    #Brief human readable Danish phone number format
     print Business::DK::Phonenumber->render($phonenum, '%d8');
     # 12345678
     
     #Normal human readable Danish phonenumber format
     print Business::DK::Phonenumber->render($phonenum, '%d2 %d2 %d2 %d2');
     # 12 34 56 78
-    
-    #Long human readable Danish phonenumber format with international prefix
-    print Business::DK::Phonenumber->render($phonenum, '+%d2 %d2 %d2 %d2 %d2');
-    # +45 12 34 56 78, default format
-    
+        
 =head1 DESCRIPTION
 
 This module offers functionality to validate, format and generate Danish
@@ -210,7 +206,7 @@ The following subroutines are to be used in a procedural manner.
 
 =head2 validate($phonenumber)
 
-This subroutine takes a string and validated whether it is a Danish phonenumber.
+This subroutine takes a string and validated whether it is a Danish phone number.
 
 Returns 1 (true) or 0 (false), depending on validity.
 
@@ -232,7 +228,7 @@ The subroutine returns an array, no matter what amount is specified.
 This is the actual generating method used by L</generate>.
 
 It takes a single parameter, a string indicating the template for the formatting
-of the phonenumbers to be generated.
+of the phone numbers to be generated.
 
 It returns a single random number representing a Danish phone number formatted
 as outlined by the specified template.
