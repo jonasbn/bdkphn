@@ -139,7 +139,6 @@ This documentation describes version 0.01
 
 =head1 SYNOPSIS
 
-    #Procedural interface
     use Business::DK::Phonenumber qw(validate render);
     
     #Validation
@@ -168,10 +167,10 @@ This documentation describes version 0.01
 =head1 DESCRIPTION
 
 This module offers functionality to validate, format and generate Danish
-phonenumbers.
+phone numbers.
 
 The validation can recognise telephone numbers is the following formats as
-Danish phonenumbers.
+Danish phone numbers.
 
 =over
 
@@ -183,13 +182,27 @@ Danish phonenumbers.
 
 =back
 
-White space characters are ignored. See also L</phonenumber>.
+White space characters are ignored.
 
 In addition to validation the module offers generation of valid danish
-phonenumbers. The purpose of using generated phonenumber is up to the user, but
+phone numbers. The purpose of using generated phone number is up to the user, but
 the original intent is generation of varied sets of test data.
 
-The module can be utilized in both procedural and object-oriented manner.
+If you want to use OOP please have a look at:
+
+=over
+
+=item * L<Class::Business::DK::Phonenumber>
+
+=back
+
+If you are using L<Data::FormValidator>
+
+=over
+
+=item * L<Data::FormValidator::Constraints::Business::DK::Phonenumber>
+
+=back
 
 =head1 SUBROUTINES AND METHODS
 
@@ -209,14 +222,20 @@ default.
 =head2 generate($template, $amount)
 
 This subroutine takes a string representing a phone number template and generates
-the number specified by second argument: amount. If no amount is specified 1
-is returned.
+the number specified by second argument: amount. If no amount is specified only
+1 is returned.
 
 The subroutine returns an array, no matter what amount is specified.
 
-=head2 _generate($template, $amount)
+=head2 _generate($template)
 
 This is the actual generating method used by L</generate>.
+
+It takes a single parameter, a string indicating the template for the formatting
+of the phonenumbers to be generated.
+
+It returns a single random number representing a Danish phone number formatted
+as outlined by the specified template.
 
 =head1 DIAGNOSTICS
 
