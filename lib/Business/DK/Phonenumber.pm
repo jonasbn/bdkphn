@@ -15,7 +15,7 @@ use constant TRUE             => 1;
 use constant FALSE            => 0;
 use constant DK_PREFIX        => '+45';
 use constant DIGITS           => 8;
-use constant DEFAULT_TEMPLATE => DK_PREFIX . ' %' . DIGITS . 'd';
+use constant DEFAULT_TEMPLATE => DK_PREFIX . ' %0' . DIGITS . 'd';
 use constant SEED             => 99999999;
 
 sub validate {
@@ -87,7 +87,7 @@ sub render {
 }
 
 sub generate {
-    my ( $self, $template, $amount ) = @_;
+    my ( $self, $amount, $template ) = @_;
 
     if ( not $amount ) {
         $amount = 1;
@@ -115,7 +115,7 @@ sub _generate {
     my ( $self, $template ) = @_;
 
     my $random_phone = int rand SEED;
-    my $phonenumber = sprintf '%.8d', $random_phone;
+    my $phonenumber = sprintf '%.08d', $random_phone;
 
     if ( ref $self ) {
         return $self->render( $phonenumber, $template );
