@@ -44,11 +44,14 @@ sub validate {
 sub render {
     my ( $self, $phonenumber, $template ) = @_;
 
-    if ( not ref $self ) {
+    if ($self =~ m/[\D]+/ && not ref $self) {
+        $self = undef;
+
+    } elsif ( not ref $self) {
         $template    = $phonenumber;
         $phonenumber = $self;
         $self        = undef;
-
+                
     } else {
 
         if ($template) {
