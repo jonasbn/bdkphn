@@ -17,12 +17,12 @@ ok(! $phonenumber->validate_template('d8%'));
 
 ok(! $phonenumber->validate_template('d%8'));
 
-ok(! $phonenumber->validate_template('%2d %2d %2d %1d'));
+ok(! $phonenumber->validate_template('%02d %02d %02d %01d'));
 
-ok(! $phonenumber->validate_template('%4d %3d'));
+ok(! $phonenumber->validate_template('%04d %03d'));
 
-ok($phonenumber->validate_template('%8d'));
+ok($phonenumber->validate_template('%08d'));
 
-ok($phonenumber->validate_template('%2d %2d %2d %2d'));
+ok($phonenumber->validate_template('%02d %02d %02d %02d'));
 
-ok($phonenumber->validate_template('%4d %4d'));
+ok($phonenumber->validate_template('%04d %04d'));
