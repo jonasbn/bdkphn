@@ -109,14 +109,13 @@ This documentation describes version 0.01
 
 =head1 SYNOPSIS
 
-    #OOP
     use Class::Business::DK::Phonenumber;
     
     #Constructor
     my $phonenumber = Class::Business::DK::Phonenumber->new('+45 12345678');
     
     #Brief human readable Danish phonenumber format with international prefix
-    print Class::Business::DK::Phonenumber->render('+%d2 %d8');
+    print $phonenumber->render('%02d %02d %02d %02d');
     
     #a brief form validating a stripping everything
     my $phonenum =
@@ -137,9 +136,20 @@ This documentation describes version 0.01
 =head1 DESCRIPTION
 
 This module offers functionality to validate, format and generate Danish
-phonenumbers.
+phonenumbers using object-oriented programming.
 
-The validation can recognise telephone numbers is the following formats as
+Please see:
+
+=over
+
+=item * L<Business::DK::Phonenumber> for a procedural interface
+
+=item * L<Data::FormValidator::Constraints::Business::DK::Phonenumber> for an
+integration with L<Data::FormValidator>
+
+=back
+
+The contructor can recognise telephone numbers is the following formats as
 Danish phonenumbers.
 
 =over
@@ -154,31 +164,26 @@ Danish phonenumbers.
 
 White space characters are ignored. See also L</phonenumber>.
 
-In addition to validation the module offers generation of valid danish
-phonenumbers. The purpose of using generated phonenumber is up to the user, but
-the original intent is generation of varied sets of test data.
-
-The module can be utilized in both procedural and object-oriented manner.
-
 =head1 SUBROUTINES AND METHODS
 
 =head2 new({ phonenumber => $phonenumber, template => $template })
 
-For validphonenumber formatting please refer to L</phonenumber>.
+For valid phone number formatting please refer to L</phonenumber>.
 
 =head2 phonenumber($phonenumber, $template)
 
-This is accessor to the phonenumber attribute for a Business::DK::Phonenumber
-object. Provided with a valid phonenumber parameter the object's phonenumber
-attribute is set.
+This is accessor to the phonenumber attribute.
+
+Provided with a valid phone number parameter the object's phone number attribute
+is set.
 
 If the accessor is not provided with a phonenumber parameter, the one defined is
 in the object is returned.
 
-See also: L<Business::DK::Phonenumber/validate>, which is used internally to validate the phonenumber
-parameter.
+See also: L<Business::DK::Phonenumber/validate>, which is used internally to
+validate the phonenumber parameter.
 
-Valid phonenumbers have to abide to the following formatting:
+Valid phone numbers have to abide to the following formatting:
 
 =over
 
@@ -193,30 +198,32 @@ Valid phonenumbers have to abide to the following formatting:
 The prefixed plus sign and space used as separator are optional as are the
 international dialing code.
 
-The phonenumber can be formatted in anyway separated using whitespace characters.
+The phone number can be formatted in anyway separated using whitespace
+characters.
 
 =head2 template($template)
 
-This is accessor to the template attribute for a Business::DK::Phonenumber
-object. Provided with a valid template parameter the object's template attribute
+This is accessor to the template attribute.
+
+Provided with a valid template parameter the object's template attribute
 is set.
 
 If the accessor is not provided with a template parameter, the one defined is in
 the object is returned.
 
-See also: L</validate_template>, which is used internally to validate the
-template parameter.
+See also: L<Business::DK::Phonenumber/validate_template>, which is used
+internally to validate the template parameter.
 
 =head1 DIAGNOSTICS
 
 =over
 
-=item * phonenumber not in recognisable format, the phone number provided to
+=item * phone number not in recognisable format, the phone number provided to
 the constructor is not parsable. Please evaluate what you are attempting to
 feed to the constructor.
 
-=item * phonenumber parameter is mandatory for the constructor, please specify
-the phonenumber parameter to the constructor in order to continue.
+=item * phone number parameter is mandatory for the constructor, please specify
+the phone number parameter to the constructor in order to continue.
 
 =item * template not in recognisable format, the template provided to the
 constructor is not in a parsable format, please evaluate what you attempting to
@@ -226,8 +233,7 @@ feed to the constructor.
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
-Business::DK::Phonenumber attempts to meet requirements of both a procuderal and
-object oriented interface.
+No special configuration or environment is necessary.
 
 =head1 DEPENDENCIES
 
@@ -292,17 +298,24 @@ or by sending mail to
 
 bug-Business-DK-Phonenumber@rt.cpan.org
 
+=head1 MOTIVATION
+
+I have been working in Telco for a long time. So validation and formatting of
+telephone numbers is something I have seen at lot of. This module is an attempt
+to sort of consolidate the numerous different regular expression solutions
+I have seen scathered over large code bases.
+
 =head1 AUTHOR
 
 Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2009
+Class-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2009
 
 =head1 LICENSE
 
-Business-DK-Phonenumber is released under the artistic license
+Class-Business-DK-Phonenumber is released under the artistic license
 
 The distribution is licensed under the Artistic License, as specified
 by the Artistic file in the standard perl distribution

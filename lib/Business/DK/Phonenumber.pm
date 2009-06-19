@@ -169,17 +169,19 @@ This documentation describes version 0.01
     print Business::DK::Phonenumber->render($phonenum);
     # +45 12 34 56 78
     
-    #Brief human readable Danish phone number format with international prefix
-    print Business::DK::Phonenumber->render($phonenum, '+%d2 %d8');
-    # +45 12345678
-    
     #Brief human readable Danish phone number format
-    print Business::DK::Phonenumber->render($phonenum, '%d8');
+    print Business::DK::Phonenumber->render($phonenum, '%08d');
     # 12345678
     
     #Normal human readable Danish phonenumber format
-    print Business::DK::Phonenumber->render($phonenum, '%d2 %d2 %d2 %d2');
+    print Business::DK::Phonenumber->render($phonenum, '%02d %02d %02d %02d');
     # 12 34 56 78
+
+    #Generation of a single random number
+    Business::DK::Phonenumber->generate();
+    
+    #Generation of 100 random numbers, using another template
+    Business::DK::Phonenumber->generate(100, '%02d %02d %02d %02d');
         
 =head1 DESCRIPTION
 
@@ -239,8 +241,8 @@ default.
 =head2 generate($template, $amount)
 
 This subroutine takes a string representing a phone number template and generates
-the number specified by second argument: amount. If no amount is specified only
-1 is returned.
+the amount specified by second argument: amount. If no amount is specified only
+a single random phone number is returned.
 
 The subroutine returns an array, no matter what amount is specified.
 
@@ -263,14 +265,22 @@ Perl's sprintf for documentation.
 
 =over
 
-=item * No special diagnostics at this time
+=item * phone number not in recognisable format, the phone number provided to
+the constructor is not parsable. Please evaluate what you are attempting to
+feed to the constructor.
+
+=item * phone number parameter is mandatory for the constructor, please specify
+the phone number parameter to the constructor in order to continue.
+
+=item * template not in recognisable format, the template provided to the
+constructor is not in a parsable format, please evaluate what you attempting to
+feed to the constructor.
 
 =back
 
 =head1 CONFIGURATION AND ENVIRONMENT
 
-Business::DK::Phonenumber attempts to meet requirements of both a procuderal and
-object oriented interface.
+No special configuration or environment is necessary.
 
 =head1 DEPENDENCIES
 
@@ -336,6 +346,13 @@ http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-Phonenumber
 or by sending mail to
 
 bug-Business-DK-Phonenumber@rt.cpan.org
+
+=head1 MOTIVATION
+
+I have been working in Telco for a long time. So validation and formatting of
+telephone numbers is something I have seen at lot of. This module is an attempt
+to sort of consolidate the numerous different regular expression solutions
+I have seen scathered over large code bases.
 
 =head1 AUTHOR
 

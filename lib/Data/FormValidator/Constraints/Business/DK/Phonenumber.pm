@@ -162,13 +162,21 @@ or by sending mail to
 
 bug-Business-DK-Phonenumber@rt.cpan.org
 
+=head1 MOTIVATION
+
+I have been working in Telco for a long time. So validation and formatting of
+telephone numbers is something I have seen at lot of. This module is an attempt
+to sort of consolidate the numerous different regular expression solutions
+I have seen scathered over large code bases.
+
 =head1 AUTHOR
 
 Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Data-FormValidator-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008
+Data-FormValidator-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn)
+2008-2009
 
 =head1 LICENSE
 
