@@ -6,7 +6,8 @@ use strict;
 use warnings;
 use vars qw($VERSION);
 use Carp qw(croak);
-use Business::DK::Phonenumber qw(validate render validate_template DEFAULT_TEMPLATE DK_PREFIX TRUE FALSE);
+use Business::DK::Phonenumber
+    qw(validate render validate_template DEFAULT_TEMPLATE DK_PREFIX TRUE FALSE);
 
 $VERSION = '0.01';
 

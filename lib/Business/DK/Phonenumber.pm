@@ -8,8 +8,9 @@ use vars qw($VERSION @EXPORT_OK);
 use Carp qw(croak);
 use base qw(Exporter);
 
-$VERSION   = '0.01';
-@EXPORT_OK = qw(validate render generate validate_template TRUE FALSE DK_PREFIX  DEFAULT_TEMPLATE);
+$VERSION = '0.01';
+@EXPORT_OK
+    = qw(validate render generate validate_template TRUE FALSE DK_PREFIX  DEFAULT_TEMPLATE);
 
 use constant TRUE             => 1;
 use constant FALSE            => 0;
@@ -44,14 +45,14 @@ sub validate {
 sub render {
     my ( $self, $phonenumber, $template ) = @_;
 
-    if ($self =~ m/[\D]+/ && not ref $self) {
+    if ( $self =~ m/\A[\D]+\b/smx and not ref $self ) {
         $self = undef;
 
-    } elsif ( not ref $self) {
+    } elsif ( not ref $self ) {
         $template    = $phonenumber;
         $phonenumber = $self;
         $self        = undef;
-                
+
     } else {
 
         if ($template) {
