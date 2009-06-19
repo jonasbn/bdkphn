@@ -9,7 +9,7 @@ use Carp qw(croak);
 use base qw(Exporter);
 
 $VERSION   = '0.01';
-@EXPORT_OK = qw(validate render generate);
+@EXPORT_OK = qw(validate render generate validate_template TRUE FALSE DK_PREFIX  DEFAULT_TEMPLATE);
 
 use constant TRUE             => 1;
 use constant FALSE            => 0;
@@ -126,6 +126,23 @@ sub _generate {
     }
 }
 
+sub validate_template {
+    my ( $self, $template ) = @_;
+
+    my @digits = $template =~ m/%(\d)+d/sxmg;
+
+    my $sum = 0;
+    foreach my $digit (@digits) {
+        $sum += $digit;
+    }
+
+    if ( $sum == DIGITS ) {
+        return TRUE;
+    } else {
+        return FALSE;
+    }
+}
+
 1;
 
 __END__
@@ -235,6 +252,11 @@ of the phone numbers to be generated.
 
 It returns a single random number representing a Danish phone number formatted
 as outlined by the specified template.
+
+=head2 validate_template
+
+This method is used internally to validate template parameters. Please refer to
+Perl's sprintf for documentation.
 
 =head1 DIAGNOSTICS
 

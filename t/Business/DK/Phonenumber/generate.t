@@ -28,5 +28,3 @@ foreach my $phonenumber (@phonenumbers) {
 }
 
 ok(@phonenumbers = Business::DK::Phonenumber->generate(100, '%02d %02d %02d %02d'));
-
-print STDERR Dumper \@phonenumbers;

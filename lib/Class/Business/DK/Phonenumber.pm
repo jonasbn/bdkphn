@@ -6,18 +6,12 @@ use strict;
 use warnings;
 use vars qw($VERSION);
 use Carp qw(croak);
-use Business::DK::Phonenumber qw(validate render);
+use Business::DK::Phonenumber qw(validate render validate_template DEFAULT_TEMPLATE DK_PREFIX TRUE FALSE);
 
 $VERSION = '0.01';
 
 ## no critic (ValuesAndExpressions::ProhibitEmptyQuotes, ValuesAndExpressions::ProhibitInterpolationOfLiterals)
 use overload "" => \&render;
-
-use constant DK_PREFIX        => '+45';
-use constant DIGITS           => 8;
-use constant DEFAULT_TEMPLATE => DK_PREFIX . ' %' . DIGITS . 'd';
-use constant TRUE             => 1;
-use constant FALSE            => 0;
 
 sub new {
     my ( $class, $params ) = @_;
@@ -95,23 +89,6 @@ sub template {
         }
     } else {
         return $self->{template};
-    }
-}
-
-sub validate_template {
-    my ( $self, $template ) = @_;
-
-    my @digits = $template =~ m/%(\d)+d/sxmg;
-
-    my $sum = 0;
-    foreach my $digit (@digits) {
-        $sum += $digit;
-    }
-
-    if ( $sum == DIGITS ) {
-        return TRUE;
-    } else {
-        return FALSE;
     }
 }
 
@@ -228,13 +205,6 @@ the object is returned.
 
 See also: L</validate_template>, which is used internally to validate the
 template parameter.
-
-=head1 PRIVATE METHODS
-
-=head2 validate_template
-
-This method is used internally to validate template parameters. Please refer to
-Perl's sprintf for documentation.
 
 =head1 DIAGNOSTICS
 

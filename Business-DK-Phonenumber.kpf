@@ -74,32 +74,6 @@
 </preference-set>
   <string id="lastInvocation">default</string>
 </preference-set>
-<preference-set idref="a6c6cfaa-3b45-084a-bd3b-577677af2584/t/Business/DK/Phonenumber/phonenumber.t">
-<preference-set id="Invocations">
-<preference-set id="default">
-  <string id="cookieparams"></string>
-  <string relative="path" id="cwd"></string>
-  <long id="debugger.io-port">9011</long>
-  <string id="documentRoot"></string>
-  <string id="executable-params">-I /Users/jonasbn/develop/svn-Jira-logicLAB/Business-DK-Phonenumber/lib</string>
-  <string relative="path" id="filename">t/Business/DK/Phonenumber/phonenumber.t</string>
-  <string id="getparams"></string>
-  <string id="language">Perl</string>
-  <string id="mpostparams"></string>
-  <string id="params"></string>
-  <string id="postparams"></string>
-  <string id="posttype">application/x-www-form-urlencoded</string>
-  <string id="request-method">GET</string>
-  <boolean id="show-dialog">1</boolean>
-  <boolean id="sim-cgi">0</boolean>
-  <boolean id="use-console">0</boolean>
-  <string id="userCGIEnvironment"></string>
-  <string id="userEnvironment"></string>
-  <string id="warnings">enabled</string>
-</preference-set>
-</preference-set>
-  <string id="lastInvocation">default</string>
-</preference-set>
 <preference-set idref="a6c6cfaa-3b45-084a-bd3b-577677af2584/t/Business/DK/Phonenumber/render.t">
 <preference-set id="Invocations">
 <preference-set id="default">
@@ -126,15 +100,15 @@
 </preference-set>
   <string id="lastInvocation">default</string>
 </preference-set>
-<preference-set idref="a6c6cfaa-3b45-084a-bd3b-577677af2584/t/Business/DK/Phonenumber/template.t">
+<preference-set idref="a6c6cfaa-3b45-084a-bd3b-577677af2584/t/Class/Business/DK/Phonenumber/template.t">
 <preference-set id="Invocations">
 <preference-set id="default">
   <string id="cookieparams"></string>
   <string id="cwd"></string>
   <long id="debugger.io-port">9011</long>
   <string id="documentRoot"></string>
-  <string id="executable-params">-I /Users/jonasbn/develop/cvs-logicLAB/modules/Business-DK-Phonenumber/blib/lib</string>
-  <string id="filename">/Users/jonasbn/develop/svn-Jira-logicLAB/BDKPHN/t/Business/DK/Phonenumber/template.t</string>
+  <string id="executable-params">-I /Users/jonasbn/develop/svn-Jira-logicLAB/Business-DK-Phonenumber/lib</string>
+  <string relative="path" id="filename">t/Class/Business/DK/Phonenumber/template.t</string>
   <string id="getparams"></string>
   <string id="language">Perl</string>
   <string id="mpostparams"></string>
