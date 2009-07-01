@@ -23,5 +23,13 @@ my $build = Module::Build->new(
         'Exporter' => '0',               #core
         'Carp'     => '0',               #core
     },
+    meta_merge => {
+        resources => {
+            homepage => 'http://logicLAB.jira.com/browse/BDKPHN',
+            bugtracker =>
+                'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-Phonenumber',
+            repository => 'http://logicLAB.jira.com/svn/BDKPHN',
+        }
+    },
 );
 $build->create_build_script();
