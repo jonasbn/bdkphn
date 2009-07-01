@@ -16,6 +16,7 @@ my $build = Module::Build->new(
         'Test::More'     => '0',    #core
         'Test::Taint'    => '0',
         'Taint::Runtime' => '0',
+        'Data::FormValidator' => '0',
     },
     requires => {
         'Exporter' => '0',          #core
