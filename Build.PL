@@ -1,6 +1,6 @@
 # Build.PL for Business-DK-Phonenumber
 
-# $Id: Build.PL,v 1.2 2006/02/20 21:50:41 jonasbn Exp $
+# $Id$
 
 use Module::Build;
 my $build = Module::Build->new(
