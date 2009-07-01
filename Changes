@@ -1,0 +1,16 @@
+Changes file for Business::DK::Phonenumber
+
+0.02 - Maintenance release, 01.07.2009 Update not required
+
+- Bug fixes
+
+    * [BDKPHN-2] - Failing tests for release 0.01, missing requirement:
+    Data::FormValidator
+    
+    * [BDKPHN-3] - Failing tests for release 0.01, missing requirement:
+    Test::Exception
+
+
+0.01 - Initial release, 19.06.2009
+
+- Initial release
