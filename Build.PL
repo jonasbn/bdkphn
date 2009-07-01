@@ -13,14 +13,15 @@ my $build = Module::Build->new(
     create_readme        => 1,
     recursive_test_files => 1,
     build_requires       => {
-        'Test::More'     => '0',    #core
-        'Test::Taint'    => '0',
-        'Taint::Runtime' => '0',
+        'Test::More'          => '0',    #core
+        'Test::Taint'         => '0',
+        'Taint::Runtime'      => '0',
         'Data::FormValidator' => '0',
+        'Test::Exception'     => '0',
     },
     requires => {
-        'Exporter' => '0',          #core
-        'Carp'     => '0',          #core
+        'Exporter' => '0',               #core
+        'Carp'     => '0',               #core
     },
 );
 $build->create_build_script();
