@@ -18,6 +18,9 @@ my $build = Module::Build->new(
         'Taint::Runtime'      => '0',
         'Data::FormValidator' => '0',
         'Test::Exception'     => '0',
+		'Test::Kwalitee'     => '0',
+		'Test::Perl::Critic'     => '0',
+		'Test::Prereq::Build'     => '0',
     },
     requires => {
         'Exporter' => '0',               #core
