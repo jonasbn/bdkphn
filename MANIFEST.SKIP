@@ -37,3 +37,6 @@
 \B\._
 # Avoid archives of this distribution
 \bBusiness-DK-Phonenumber-[\d\.\_]+
+
+# Avoid project-specific files/dirs
+docs
