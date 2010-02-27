@@ -1,14 +1,22 @@
 #Courtesy of chromatic
 #http://search.cpan.org/~chromatic/Test-Kwalitee/lib/Test/Kwalitee.pm
 
-# in a separate test file
+# $Id$
+
+use strict;
+use warnings;
+use Env qw($TEST_AUTHOR);
 use Test::More;
 
-eval
-{
+if (not $TEST_AUTHOR) {
+    plan skip_all => 'set TEST_AUTHOR to enable this test';
+}
+
+eval {
     require Test::Kwalitee;
-        Test::Kwalitee->import();
+    Test::Kwalitee->import();
 };
 
-plan( skip_all => 'Test::Kwalitee not installed; skipping' ) if $@;
-
+if ($@) {
+    plan skip_all => 'Test::Kwalitee not installed; skipping';
+}
