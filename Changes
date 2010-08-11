@@ -1,8 +1,8 @@
 Changes file for Business::DK::Phonenumber
 
-0.03 - Maintenance release, 01.07.2009 Update not required
+0.03 - Bugfix release, 17.07.2009 Update recommended
 
-- Bug fixes - Bugfix release, 17.07.2009 Update recommended
+- Bug fixes
     
     * [BDKPHN-4] - fixed bug in primary regular expression in validation
     subroutine
