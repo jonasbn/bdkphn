@@ -8,15 +8,14 @@ use warnings;
 use Env qw($TEST_AUTHOR);
 use Test::More;
 
-if (not $TEST_AUTHOR) {
-    plan skip_all => 'set TEST_AUTHOR to enable this test';
-}
-
 eval {
     require Test::Kwalitee;
-    Test::Kwalitee->import();
 };
 
-if ($@) {
+if ($@ and $TEST_AUTHOR) {
     plan skip_all => 'Test::Kwalitee not installed; skipping';
+} elsif (not $TEST_AUTHOR) {
+    plan skip_all => 'set TEST_AUTHOR to enable this test';
+} else {
+    Test::Kwalitee->import();
 }

@@ -1,5 +1,12 @@
 Changes file for Business::DK::Phonenumber
 
+HEAD
+
+- Bug fixes
+
+    * [BDKPHN-6] - addressed failing Kwalitee test
+    
+
 0.03 - Bugfix release, 17.07.2009 Update recommended
 
 - Bug fixes
