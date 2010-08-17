@@ -333,7 +333,11 @@ which is easy to use.
 
 =item L<Class::Business::DK::Phonenumber>
 
+An OOP approach to regarding a Danish phone number as an object
+
 =item L<Data::FormValidator::Constraints::Business::DK::Phonenumber>
+
+Wrapper for integrating with L<Data::FormValidator>
 
 =back
 
@@ -341,7 +345,7 @@ which is easy to use.
 
 Please report issues via CPAN RT:
 
-http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-Phonenumber
+L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-Phonenumber>
 
 or by sending mail to
 
@@ -360,7 +364,7 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2009
+Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2010
 
 =head1 LICENSE
 
