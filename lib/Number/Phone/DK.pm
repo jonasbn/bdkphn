@@ -7,7 +7,7 @@ use warnings;
 use Business::DK::Phonenumber qw(validate render);
 use Carp qw(croak);
 
-## no critic (Subroutines::ProhibitExplicitReturnUndef)
+##no critic (Subroutines::ProhibitExplicitReturnUndef)
 
 sub new {
     my ($class) = shift;
@@ -97,6 +97,64 @@ sub translates_to { return undef; }
 __END__
 
 =pod
+
+=head2 areacode
+
+=head2 areaname
+
+=head2 country
+
+=head2 country_code
+
+=head2 format
+
+=head2 is_adult
+
+=head2 is_allocated
+
+=head2 is_corporate
+
+=head2 is_fixed_line
+
+=head2 is_geographic
+
+=head2 is_government
+
+=head2 is_in_use
+
+=head2 is_international
+
+=head2 is_ipphone
+
+=head2 is_isdn
+
+=head2 is_mobile
+
+=head2 is_network_service
+
+=head2 is_pager
+
+=head2 is_personal
+
+=head2 is_specialrate
+
+=head2 is_tollfree
+
+=head2 is_valid
+
+=head2 location
+
+=head2 new
+
+=head2 operator
+
+=head2 regulator
+
+=head2 subscriber
+
+=head2 translates_to
+
+=head2 type
 
 =head1 SEE ALSO
 
