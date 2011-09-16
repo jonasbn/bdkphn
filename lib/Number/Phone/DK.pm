@@ -23,7 +23,7 @@ sub new {
 	}
 
 	my $self = bless {}, $class || ref $class;
-	my $self->{number} = $number;
+	$self->{number} = $number;
 	
 	return $self;
 }
