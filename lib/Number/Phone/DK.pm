@@ -82,6 +82,8 @@ sub operator { return undef; }
 sub type { return undef; }
 
 sub format { 
+	my $self = shift;
+	
 	#default pattern: +45 XX XX XX XX (see Business::DK::Phonenumber)
 	return render($self->{number}); 
 }
