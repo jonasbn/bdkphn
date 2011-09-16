@@ -7,6 +7,8 @@ use warnings;
 use Business::DK::Phonenumber qw(validate render);
 use Carp qw(croak);
 
+## no critic (Subroutines::ProhibitExplicitReturnUndef)
+
 sub new {
     my ($class) = shift;
 	
@@ -45,9 +47,11 @@ sub is_ipphone { return undef; }
 
 sub is_isdn { return undef; }
 
-sub is_tollfree { return undef; #80 }
+#80
+sub is_tollfree { return undef; }
 
-sub is_specialrate { return undef; #90 }
+#90
+sub is_specialrate { return undef; }
 
 sub is_adult { return undef; }
 
