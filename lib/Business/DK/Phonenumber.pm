@@ -62,14 +62,16 @@ sub render {
                 Class::Business::DK::Phonenumber::validate_template(
                     $template);
             }
-        }
-
-        $template = $template || $self->{template} || DEFAULT_TEMPLATE;
+        } else {
+			$template = $self->{template} || DEFAULT_TEMPLATE;
+		}
 
         if ( not $phonenumber ) {
             $phonenumber = $self->{phonenumber};
         }
     }
+
+	$phonenumber =~ s/\s//sxmg;
 
     my @subs = $template =~ m/%(\d)+d/sxmg;
 
