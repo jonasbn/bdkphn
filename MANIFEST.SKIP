@@ -40,3 +40,5 @@
 
 # Avoid project-specific files/dirs
 docs
+^MYMETA\.yml$
+^MYMETA\.json$
