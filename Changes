@@ -5,17 +5,22 @@ HEAD
 - Bug fixes
 
     * [BDKPHN-6] - addressed failing Kwalitee test
-    
 
-0.03 - Bugfix release, 17.07.2009 Update recommended
+0.04 - Bug fix release, 2012.01.12 Update recommended
+
+    * [BDKPHN-10] - fixed bug in render subroutine, template parameter was not 
+    respected
+
+
+0.03 - Bugfix release, 2009.07.17 Update recommended
 
 - Bug fixes
-    
+
     * [BDKPHN-4] - fixed bug in primary regular expression in validation
     subroutine
 
 
-0.02 - Maintenance release, 01.07.2009 Update not required
+0.02 - Maintenance release, 2009.07.01 Update not required
 
 - Bug fixes
 
@@ -26,6 +31,6 @@ HEAD
     Test::Exception
 
 
-0.01 - Initial release, 19.06.2009
+0.01 - Initial release, 2009.06.19
 
 - Initial release
