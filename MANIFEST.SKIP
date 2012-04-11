@@ -30,6 +30,9 @@
 \.#
 \.rej$
 
+# Avoid other files
+Debian_CPANTS.txt
+
 # Avoid OS-specific files/dirs
 #   Mac OSX metadata
 \B\.DS_Store
