@@ -1,6 +1,12 @@
 Changes file for Business::DK::Phonenumber
 
-HEAD
+$Id$
+
+Project site changelog:
+
+http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
+
+0.05 - Bug fix release, 2012.04.11 Update not required
 
 - Bug fixes
 
