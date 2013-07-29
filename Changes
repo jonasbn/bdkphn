@@ -6,37 +6,50 @@ Project site changelog:
 
 http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-0.05 - Bug fix release, 2012.04.11 Update not required
+0.06 2013-07-29
 
-- Bug fixes
+- Fixed up Changes file as part of my Questhub quest adhering to the standard
+  described in: CPAN::Changes::Spec [BDKPHN-12]
 
-    * [BDKPHN-6] - addressed failing Kwalitee test
+  Quest: http://questhub.io/realm/perl/quest/51f0fd8e18ba7dcf4b000040
+  Spec: https://metacpan.org/module/CPAN::Changes::Spec
+  
+  https://logiclab.jira.com/browse/BDKPHN-12
+  
 
-0.04 - Bug fix release, 2012.01.12 Update recommended
+0.05 2012-04-11
 
-    * [BDKPHN-10] - fixed bug in render subroutine, template parameter was not 
-    respected
+- Bug fix release, update not required
 
-
-0.03 - Bugfix release, 2009.07.17 Update recommended
-
-- Bug fixes
-
-    * [BDKPHN-4] - fixed bug in primary regular expression in validation
-    subroutine
+- Addressed failing Kwalitee test [BDKPHN-6]
 
 
-0.02 - Maintenance release, 2009.07.01 Update not required
+0.04 2012-01-12
 
-- Bug fixes
+- Update recommended
 
-    * [BDKPHN-2] - Failing tests for release 0.01, missing requirement:
-    Data::FormValidator
+- fixed bug in render subroutine, template parameter was not respected
+  [BDKPHN-10]
+
+
+0.03 2009-07-17
+
+- Update recommended
+
+- fixed bug in primary regular expression in validation subroutine [BDKPHN-4]
+
+
+0.02 2009-07-01
+
+- - Maintenance release, update not required
+
+- Failing tests for release 0.01, missing requirement: Data::FormValidator
+  [BDKPHN-2]
     
-    * [BDKPHN-3] - Failing tests for release 0.01, missing requirement:
-    Test::Exception
+- Failing tests for release 0.01, missing requirement: Test::Exception
+  [BDKPHN-3]
 
 
-0.01 - Initial release, 2009.06.19
+0.01 2009-06-19
 
 - Initial release
