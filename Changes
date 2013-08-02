@@ -6,7 +6,7 @@ Project site changelog:
 
 http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-0.06 2013-07-29
+0.06 2013-08-02
 
 - Fixed up Changes file as part of my Questhub quest adhering to the standard
   described in: CPAN::Changes::Spec [BDKPHN-12]
@@ -15,7 +15,23 @@ http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.sys
   Spec: https://metacpan.org/module/CPAN::Changes::Spec
   
   https://logiclab.jira.com/browse/BDKPHN-12
+
+- Addressed failing Kwalitee test [BDKPHN-6]
+
+  https://logiclab.jira.com/browse/BDKPHN-6
+
+- Added contemporay boiler plate of Perl::Critic test [BDKPHN-8]  
   
+  https://logiclab.jira.com/browse/BDKPHN-8
+
+- Prerequisites test now under TEST_AUTHOR flag [BDKPHN-5]  
+  
+  https://logiclab.jira.com/browse/BDKPHN-5
+
+- Changed creation of traditional Makefile.PL to Build.PL [BDKPHN-11]  
+  
+  https://logiclab.jira.com/browse/BDKPHN-11
+
 
 0.05 2012-04-11
 
