@@ -45,3 +45,11 @@ Debian_CPANTS.txt
 docs
 ^MYMETA\.yml$
 ^MYMETA\.json$
+prototypes
+
+
+# Komodo files
+\.kpf
+
+#Temporary left out, since it is not done yet
+lib/Number/Phone/DK.pm
