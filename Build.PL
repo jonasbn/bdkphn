@@ -31,7 +31,12 @@ my $build = Module::Build->new(
             homepage => 'http://logicLAB.jira.com/browse/BDKPHN',
             bugtracker =>
                 'http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-Phonenumber',
-            repository => 'http://logicLAB.jira.com/svn/BDKPHN',
+            repository => 'https://github.com/jonasbn/bdkphn',
+            ProjectChangelog =>
+                'http://logiclab.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel',
+            ProjectSite => 'http://logicLAB.jira.com/browse/BDKPHN',
+            ProjectWiki => 'http://logiclab.jira.com/wiki/display/BDKPHN/Home',
+
         }
     },
 );
