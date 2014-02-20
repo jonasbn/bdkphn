@@ -54,3 +54,6 @@ prototypes
 
 #Temporary left out, since it is not done yet
 lib/Number/Phone/DK.pm
+
+# Github - Travis integration
+\.travis\.yml
