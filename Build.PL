@@ -13,18 +13,19 @@ my $build = Module::Build->new(
     create_readme        => 1,
     recursive_test_files => 1,
     build_requires       => {
-        'Test::More'          => '0',    #core
+        'Test::More'          => '0',        #core
         'Test::Taint'         => '0',
         'Taint::Runtime'      => '0',
         'Data::FormValidator' => '0',
         'Test::Exception'     => '0',
-		'Test::Kwalitee'     => '0',
-		'Test::Perl::Critic'     => '0',
-		'Test::Prereq::Build'     => '0',
+        'Test::Kwalitee'      => '0',
+        'Test::Perl::Critic'  => '0',
+        'Test::Prereq::Build' => '0',
+        'perl'                => '5.8.0',
     },
     requires => {
-        'Exporter' => '0',               #core
-        'Carp'     => '0',               #core
+        'Exporter' => '0',                   #core
+        'Carp'     => '0',                   #core
     },
     meta_merge => {
         resources => {
@@ -35,7 +36,8 @@ my $build = Module::Build->new(
             ProjectChangelog =>
                 'http://logiclab.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel',
             ProjectSite => 'http://logicLAB.jira.com/browse/BDKPHN',
-            ProjectWiki => 'http://logiclab.jira.com/wiki/display/BDKPHN/Home',
+            ProjectWiki =>
+                'http://logiclab.jira.com/wiki/display/BDKPHN/Home',
 
         }
     },
