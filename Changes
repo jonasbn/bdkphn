@@ -11,6 +11,9 @@ http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.sys
 - Addressing Kwalitee, aligning version for version consistency in
   modules in distribution
 
+- Perl version requirement specified to be 5.8, based on Perl::Critic
+  output
+
 - Added changes.t automatic assertion of the integrity of the Changes file
   see also BDKPHN-12 [BDKPNH-13]
 
