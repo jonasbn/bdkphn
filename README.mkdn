@@ -1,0 +1,187 @@
+[![CPAN version](https://badge.fury.io/pl/Business-DK-Phonenumber.svg)](http://badge.fury.io/pl/Business-DK-Phonenumber)
+
+# NAME
+
+Business::DK::Phonenumber - Danish telephone number validator/formatter
+
+# VERSION
+
+This documentation describes version 0.01
+
+# SYNOPSIS
+
+    use Business::DK::Phonenumber qw(validate render);
+    
+    #Validation
+    if (Business::DK::Phonenumber->validate($phonenumber)) { ... }
+    
+    #Default format
+    print Business::DK::Phonenumber->render($phonenum);
+    # +45 12 34 56 78
+    
+    #Brief human readable Danish phone number format
+    print Business::DK::Phonenumber->render($phonenum, '%08d');
+    # 12345678
+    
+    #Normal human readable Danish phonenumber format
+    print Business::DK::Phonenumber->render($phonenum, '%02d %02d %02d %02d');
+    # 12 34 56 78
+
+    #Generation of a single random number
+    Business::DK::Phonenumber->generate();
+    
+    #Generation of 100 random numbers, using another template
+    Business::DK::Phonenumber->generate(100, '%02d %02d %02d %02d');
+        
+
+# DESCRIPTION
+
+This module offers functionality to validate, format and generate Danish
+phone numbers.
+
+The validation can recognise telephone numbers is the following formats as
+Danish phone numbers.
+
+- 12345678
+- 4512345678
+- +4512345678
+
+White space characters are ignored.
+
+In addition to validation the module offers generation of valid danish
+phone numbers. The purpose of using generated phone number is up to the user, but
+the original intent is generation of varied sets of test data.
+
+If you want to use OOP please have a look at:
+
+- [Class::Business::DK::Phonenumber](https://metacpan.org/pod/Class::Business::DK::Phonenumber)
+
+If you are using [Data::FormValidator](https://metacpan.org/pod/Data::FormValidator)
+
+- [Data::FormValidator::Constraints::Business::DK::Phonenumber](https://metacpan.org/pod/Data::FormValidator::Constraints::Business::DK::Phonenumber)
+
+# SUBROUTINES AND METHODS
+
+The following subroutines are to be used in a procedural manner.
+
+## validate($phonenumber)
+
+This subroutine takes a string and validated whether it is a Danish phone number.
+
+Returns 1 (true) or 0 (false), depending on validity.
+
+## render($phonenumber, $template)
+
+Returns a phonenumber rendered according to the template parameter or the
+default.
+
+## generate($template, $amount)
+
+This subroutine takes a string representing a phone number template and generates
+the amount specified by second argument: amount. If no amount is specified only
+a single random phone number is returned.
+
+The subroutine returns an array, no matter what amount is specified.
+
+## \_generate($template)
+
+This is the actual generating method used by ["generate"](#generate).
+
+It takes a single parameter, a string indicating the template for the formatting
+of the phone numbers to be generated.
+
+It returns a single random number representing a Danish phone number formatted
+as outlined by the specified template.
+
+## validate\_template
+
+This method is used internally to validate template parameters. Please refer to
+Perl's sprintf for documentation.
+
+# DIAGNOSTICS
+
+- phone number not in recognisable format, the phone number provided to
+the constructor is not parsable. Please evaluate what you are attempting to
+feed to the constructor.
+- phone number parameter is mandatory for the constructor, please specify
+the phone number parameter to the constructor in order to continue.
+- template not in recognisable format, the template provided to the
+constructor is not in a parsable format, please evaluate what you attempting to
+feed to the constructor.
+
+# CONFIGURATION AND ENVIRONMENT
+
+No special configuration or environment is necessary.
+
+# DEPENDENCIES
+
+- [Carp](https://metacpan.org/pod/Carp)
+- [Exporter](https://metacpan.org/pod/Exporter)
+
+# INCOMPATIBILITIES
+
+No known incompatibilities at this time.
+
+# BUGS AND LIMITATIONS
+
+No known bugs or limitations at this time.
+
+# TEST AND QUALITY
+
+- The [Perl::Critic::Policy::ValuesAndExpressions::RequireNumberSeparators](https://metacpan.org/pod/Perl::Critic::Policy::ValuesAndExpressions::RequireNumberSeparators)
+policy has been disabled. We are working with phonenumbers, strings consisting primarily of number, so not special interpretation or calculative behaviour is needed.
+- [Perl::Critic::Policy::ValuesAndExpressions::ProhibitConstantPragma](https://metacpan.org/pod/Perl::Critic::Policy::ValuesAndExpressions::ProhibitConstantPragma) policy has been disabled. I like constants.
+- [Perl::Critic::Policy::InputOutput::RequireBracedFileHandleWithPrint](https://metacpan.org/pod/Perl::Critic::Policy::InputOutput::RequireBracedFileHandleWithPrint) policy has been disabled for now should be revisited at some point.
+
+# TODO
+
+- Please refer to the distribution TODO file
+
+# SEE ALSO
+
+- [sprintf](https://metacpan.org/pod/sprintf)
+
+    Business::DK::Phonenumber utilizes sprintf to as templating system for
+    formatting telephonenumbers. This is a well specified and tested interface
+    which is easy to use.
+
+- [Class::Business::DK::Phonenumber](https://metacpan.org/pod/Class::Business::DK::Phonenumber)
+
+    An OOP approach to regarding a Danish phone number as an object
+
+- [Data::FormValidator::Constraints::Business::DK::Phonenumber](https://metacpan.org/pod/Data::FormValidator::Constraints::Business::DK::Phonenumber)
+
+    Wrapper for integrating with [Data::FormValidator](https://metacpan.org/pod/Data::FormValidator)
+
+# BUG REPORTING
+
+Please report issues via CPAN RT:
+
+[http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-Phonenumber](http://rt.cpan.org/NoAuth/Bugs.html?Dist=Business-DK-Phonenumber)
+
+or by sending mail to
+
+bug-Business-DK-Phonenumber@rt.cpan.org
+
+# MOTIVATION
+
+I have been working in Telco for a long time. So validation and formatting of
+telephone numbers is something I have seen at lot of. This module is an attempt
+to sort of consolidate the numerous different regular expression solutions
+I have seen scathered over large code bases.
+
+# AUTHOR
+
+Jonas B. Nielsen, (jonasbn) - `<jonasbn@cpan.org>`
+
+# COPYRIGHT
+
+Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2010
+
+# LICENSE
+
+Business-DK-Phonenumber is released under the artistic license
+
+The distribution is licensed under the Artistic License, as specified
+by the Artistic file in the standard perl distribution
+(http://www.perl.com/language/misc/Artistic.html).
