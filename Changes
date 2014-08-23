@@ -4,13 +4,16 @@ Project site changelog:
 
 http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
+0.08 2014-08-23, maintenance release, update not required
+
+- Perl version requirement specified to be 5.8, based on
+  Perl::Critic output
+
+
 0.07 2014-08-15, maintenance release, update not required
 
 - Addressing Kwalitee, aligning version for version consistency in
   modules in distribution
-
-- Perl version requirement specified to be 5.8, based on
-  Perl::Critic output
 
 - Added changes.t automatic assertion of the integrity of the
   Changes file see also BDKPHN-12 [BDKPNH-13]

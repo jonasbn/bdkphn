@@ -8,7 +8,7 @@ use vars qw($VERSION @EXPORT_OK);
 use Business::DK::Phonenumber qw(validate render);
 use base qw(Exporter);
 
-$VERSION   = '0.07';
+$VERSION   = '0.08';
 @EXPORT_OK = qw(valid_dk_phonenumber match_dk_phonenumber);
 
 use constant VALID   => 1;
