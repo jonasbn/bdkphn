@@ -1,7 +1,5 @@
 # Build.PL for Business-DK-Phonenumber
 
-# $Id$
-
 use Module::Build;
 my $build = Module::Build->new(
     dist_author       => 'Jonas B. Nielsen, (jonasbn) <jonasbn@cpan.org>',
