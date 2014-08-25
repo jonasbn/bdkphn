@@ -1,7 +1,5 @@
 package Business::DK::Phonenumber;
 
-# $Id$
-
 use strict;
 use warnings;
 use vars qw($VERSION @EXPORT_OK);
@@ -64,15 +62,15 @@ sub render {
                     $template);
             }
         } else {
-			$template = $self->{template} || DEFAULT_TEMPLATE;
-		}
+            $template = $self->{template} || DEFAULT_TEMPLATE;
+        }
 
         if ( not $phonenumber ) {
             $phonenumber = $self->{phonenumber};
         }
     }
 
-	$phonenumber =~ s/\s//sxmg;
+    $phonenumber =~ s/\s//sxmg;
 
     my @subs = $template =~ m/%(\d)+d/sxmg;
 
@@ -164,28 +162,28 @@ This documentation describes version 0.01
 =head1 SYNOPSIS
 
     use Business::DK::Phonenumber qw(validate render);
-    
+
     #Validation
     if (Business::DK::Phonenumber->validate($phonenumber)) { ... }
-    
+
     #Default format
     print Business::DK::Phonenumber->render($phonenum);
     # +45 12 34 56 78
-    
+
     #Brief human readable Danish phone number format
     print Business::DK::Phonenumber->render($phonenum, '%08d');
     # 12345678
-    
+
     #Normal human readable Danish phonenumber format
     print Business::DK::Phonenumber->render($phonenum, '%02d %02d %02d %02d');
     # 12 34 56 78
 
     #Generation of a single random number
     Business::DK::Phonenumber->generate();
-    
+
     #Generation of 100 random numbers, using another template
     Business::DK::Phonenumber->generate(100, '%02d %02d %02d %02d');
-        
+
 =head1 DESCRIPTION
 
 This module offers functionality to validate, format and generate Danish
@@ -305,7 +303,7 @@ No known bugs or limitations at this time.
 
 =head1 TEST AND QUALITY
 
-=over 
+=over
 
 =item * The L<Perl::Critic::Policy::ValuesAndExpressions::RequireNumberSeparators>
 policy has been disabled. We are working with phonenumbers, strings consisting primarily of number, so not special interpretation or calculative behaviour is needed.
@@ -359,7 +357,7 @@ bug-Business-DK-Phonenumber@rt.cpan.org
 I have been working in Telco for a long time. So validation and formatting of
 telephone numbers is something I have seen at lot of. This module is an attempt
 to sort of consolidate the numerous different regular expression solutions
-I have seen scathered over large code bases.
+I have seen scattered over large code bases.
 
 =head1 AUTHOR
 
@@ -367,14 +365,10 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2010
+Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2014
 
 =head1 LICENSE
 
-Business-DK-Phonenumber is released under the artistic license
-
-The distribution is licensed under the Artistic License, as specified
-by the Artistic file in the standard perl distribution
-(http://www.perl.com/language/misc/Artistic.html).
+Business-DK-Phonenumber is released under the artistic license 2.0
 
 =cut

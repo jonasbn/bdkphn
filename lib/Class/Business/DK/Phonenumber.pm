@@ -1,7 +1,5 @@
 package Class::Business::DK::Phonenumber;
 
-# $Id$
-
 use strict;
 use warnings;
 use vars qw($VERSION);
@@ -110,23 +108,23 @@ This documentation describes version 0.01
 =head1 SYNOPSIS
 
     use Class::Business::DK::Phonenumber;
-    
+
     #Constructor
     my $phonenumber = Class::Business::DK::Phonenumber->new('+45 12345678');
-    
+
     #Brief human readable Danish phonenumber format with international prefix
     print $phonenumber->render('%02d %02d %02d %02d');
-    
+
     #a brief form validating a stripping everything
     my $phonenum =
         Class::Business::DK::Phonenumber->new('+45 12 34 56 78')->render('%d8');
     # 12345678
-    
+
     #for MSISDN like representation with protocol prefix
     my $phonenum =
         Class::Business::DK::Phonenumber->new('+45 12 34 56 78')->render('GSM%d10');
     # GSM4512345678
-    
+
     #for dialing Denmark with international country prefix and international
     #calling code for calling outside Denmark 00
     my $phonenum =
@@ -187,7 +185,7 @@ Valid phone numbers have to abide to the following formatting:
 
 =over
 
-=item * +<international prefix><8 digit phonenumber> 
+=item * +<international prefix><8 digit phonenumber>
 
 =item * <international prefix><8 digit phonenumber>
 

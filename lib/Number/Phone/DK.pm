@@ -1,37 +1,37 @@
 package Number::Phone::DK;
 
- # $Id$
-
 use strict;
 use warnings;
 use Business::DK::Phonenumber qw(validate render);
 use Carp qw(croak);
 
+our $VERSION = '0.08';
+
 ##no critic (Subroutines::ProhibitExplicitReturnUndef)
 
 sub new {
     my ($class) = shift;
-	
-	my $number = join('', @_);
-   
-	if (not $number) {
-    	croak ("Need to specify a number for ".__PACKAGE__."->new()\n");
+
+    my $number = join( '', @_ );
+
+    if ( not $number ) {
+        croak( "Need to specify a number for " . __PACKAGE__ . "->new()\n" );
     }
 
-	if (not validate($number)) {
-		croak ('Unable to validate number');
-	}
+    if ( not validate($number) ) {
+        croak('Unable to validate number');
+    }
 
-	my $self = bless {}, $class || ref $class;
-	$self->{number} = $number;
-	
-	return $self;
+    my $self = bless {}, $class || ref $class;
+    $self->{number} = $number;
+
+    return $self;
 }
 
-sub is_valid {}
+sub is_valid { }
 
 #not allocated 17, 19, 67, 68, 83, 84, 85, 92, 93, 94, 95 and 290
-sub is_allocated { return undef;  } 
+sub is_allocated { return undef; }
 
 sub is_in_use { return undef; }
 
@@ -65,7 +65,7 @@ sub is_international { return undef; }
 
 sub is_network_service { return undef; }
 
-sub country_code { return '45'; };
+sub country_code { return '45'; }
 
 sub regulator { return undef; }
 
@@ -81,11 +81,11 @@ sub operator { return undef; }
 
 sub type { return undef; }
 
-sub format { 
-	my $self = shift;
-	
-	#default pattern: +45 XX XX XX XX (see Business::DK::Phonenumber)
-	return render($self->{number}); 
+sub format {
+    my $self = shift;
+
+    #default pattern: +45 XX XX XX XX (see Business::DK::Phonenumber)
+    return render( $self->{number} );
 }
 
 sub country { return 'DK'; }

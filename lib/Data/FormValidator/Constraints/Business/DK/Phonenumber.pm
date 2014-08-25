@@ -1,7 +1,5 @@
 package Data::FormValidator::Constraints::Business::DK::Phonenumber;
 
-# $Id$
-
 use strict;
 use warnings;
 use vars qw($VERSION @EXPORT_OK);
