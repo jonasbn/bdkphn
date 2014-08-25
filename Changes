@@ -4,6 +4,13 @@ Project site changelog:
 
 http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
+HEAD
+
+- Upgraded license from Artistic 1.0 to Artistic 2.0
+
+- Migrated build system from Module::Build to Dist::Zilla
+
+
 0.08 2014-08-23, maintenance release, update not required
 
 - Perl version requirement specified to be 5.8, based on
