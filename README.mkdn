@@ -1,4 +1,6 @@
 [![CPAN version](https://badge.fury.io/pl/Business-DK-Phonenumber.svg)](http://badge.fury.io/pl/Business-DK-Phonenumber)
+[![Build Status](https://travis-ci.org/jonasbn/bdkphn.svg?branch=master)](https://travis-ci.org/jonasbn/bdkphn)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/bdkphn/badge.png?branch=master)](https://coveralls.io/r/jonasbn/bdkphn?branch=master)
 
 # NAME
 
@@ -11,28 +13,28 @@ This documentation describes version 0.01
 # SYNOPSIS
 
     use Business::DK::Phonenumber qw(validate render);
-    
+
     #Validation
     if (Business::DK::Phonenumber->validate($phonenumber)) { ... }
-    
+
     #Default format
     print Business::DK::Phonenumber->render($phonenum);
     # +45 12 34 56 78
-    
+
     #Brief human readable Danish phone number format
     print Business::DK::Phonenumber->render($phonenum, '%08d');
     # 12345678
-    
+
     #Normal human readable Danish phonenumber format
     print Business::DK::Phonenumber->render($phonenum, '%02d %02d %02d %02d');
     # 12 34 56 78
 
     #Generation of a single random number
     Business::DK::Phonenumber->generate();
-    
+
     #Generation of 100 random numbers, using another template
     Business::DK::Phonenumber->generate(100, '%02d %02d %02d %02d');
-        
+
 
 # DESCRIPTION
 
