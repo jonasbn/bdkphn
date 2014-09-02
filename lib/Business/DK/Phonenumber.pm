@@ -151,6 +151,14 @@ __END__
 
 =pod
 
+=begin markdown
+
+[![CPAN version](https://badge.fury.io/pl/Business-DK-Phonenumber.svg)](http://badge.fury.io/pl/Business-DK-Phonenumber)
+[![Build Status](https://travis-ci.org/jonasbn/bdkphn.svg?branch=master)](https://travis-ci.org/jonasbn/bdkphn)
+[![Coverage Status](https://coveralls.io/repos/jonasbn/bdkphn/badge.png?branch=master)](https://coveralls.io/r/jonasbn/bdkphn?branch=master)
+
+=end markdown
+
 =head1 NAME
 
 Business::DK::Phonenumber - Danish telephone number validator/formatter
