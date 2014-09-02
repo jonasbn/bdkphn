@@ -1,14 +1,10 @@
-[![CPAN version](https://badge.fury.io/pl/Business-DK-Phonenumber.svg)](http://badge.fury.io/pl/Business-DK-Phonenumber)
-[![Build Status](https://travis-ci.org/jonasbn/bdkphn.svg?branch=master)](https://travis-ci.org/jonasbn/bdkphn)
-[![Coverage Status](https://coveralls.io/repos/jonasbn/bdkphn/badge.png?branch=master)](https://coveralls.io/r/jonasbn/bdkphn?branch=master)
-
 # NAME
 
 Business::DK::Phonenumber - Danish telephone number validator/formatter
 
 # VERSION
 
-This documentation describes version 0.01
+This documentation describes version 0.09
 
 # SYNOPSIS
 
@@ -34,7 +30,6 @@ This documentation describes version 0.01
 
     #Generation of 100 random numbers, using another template
     Business::DK::Phonenumber->generate(100, '%02d %02d %02d %02d');
-
 
 # DESCRIPTION
 
@@ -170,7 +165,7 @@ bug-Business-DK-Phonenumber@rt.cpan.org
 I have been working in Telco for a long time. So validation and formatting of
 telephone numbers is something I have seen at lot of. This module is an attempt
 to sort of consolidate the numerous different regular expression solutions
-I have seen scathered over large code bases.
+I have seen scattered over large code bases.
 
 # AUTHOR
 
@@ -178,12 +173,8 @@ Jonas B. Nielsen, (jonasbn) - `<jonasbn@cpan.org>`
 
 # COPYRIGHT
 
-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2010
+Business-DK-Phonenumber and related is (C) by Jonas B. Nielsen, (jonasbn) 2008-2014
 
 # LICENSE
 
-Business-DK-Phonenumber is released under the artistic license
-
-The distribution is licensed under the Artistic License, as specified
-by the Artistic file in the standard perl distribution
-(http://www.perl.com/language/misc/Artistic.html).
+Business-DK-Phonenumber and related is released under the Artistic License 2.0
