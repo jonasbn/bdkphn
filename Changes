@@ -4,7 +4,9 @@ Project site changelog:
 
 http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 
-HEAD
+0.09 2014-09-02, maintenance release, update not required
+
+- Fixed issued with Perl version format
 
 - Upgraded license from Artistic 1.0 to Artistic 2.0
 

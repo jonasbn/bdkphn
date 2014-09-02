@@ -5,7 +5,7 @@ use warnings;
 use Business::DK::Phonenumber qw(validate render);
 use Carp qw(croak);
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 ##no critic (Subroutines::ProhibitExplicitReturnUndef)
 
@@ -168,5 +168,12 @@ __END__
 
 =back
 
-=cut
+=head1 COPYRIGHT
 
+Business-DK-Phonenumber and related is (C) by Jonas B. Nielsen, (jonasbn) 2008-2014
+
+=head1 LICENSE
+
+Business-DK-Phonenumber and related is released under the Artistic License 2.0
+
+=cut

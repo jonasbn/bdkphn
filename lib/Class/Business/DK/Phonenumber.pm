@@ -7,7 +7,7 @@ use Carp qw(croak);
 use Business::DK::Phonenumber
     qw(validate render validate_template DEFAULT_TEMPLATE DK_PREFIX TRUE FALSE);
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 
 ## no critic (ValuesAndExpressions::ProhibitEmptyQuotes, ValuesAndExpressions::ProhibitInterpolationOfLiterals)
 use overload "" => \&render;
@@ -103,7 +103,7 @@ Class::Business::DK::Phonenumber - class to model, validate and format Danish te
 
 =head1 VERSION
 
-This documentation describes version 0.01
+This documentation describes version 0.09
 
 =head1 SYNOPSIS
 
@@ -309,14 +309,10 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Class-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2009
+Business-DK-Phonenumber and related is (C) by Jonas B. Nielsen, (jonasbn) 2008-2014
 
 =head1 LICENSE
 
-Class-Business-DK-Phonenumber is released under the artistic license
-
-The distribution is licensed under the Artistic License, as specified
-by the Artistic file in the standard perl distribution
-(http://www.perl.com/language/misc/Artistic.html).
+Business-DK-Phonenumber and related is released under the Artistic License 2.0
 
 =cut

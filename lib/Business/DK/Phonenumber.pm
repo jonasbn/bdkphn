@@ -7,7 +7,7 @@ use Carp qw(croak);
 use base qw(Exporter);
 use 5.008;
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 @EXPORT_OK
     = qw(validate render generate validate_template TRUE FALSE DK_PREFIX  DEFAULT_TEMPLATE);
 
@@ -157,7 +157,7 @@ Business::DK::Phonenumber - Danish telephone number validator/formatter
 
 =head1 VERSION
 
-This documentation describes version 0.01
+This documentation describes version 0.09
 
 =head1 SYNOPSIS
 
@@ -365,10 +365,10 @@ Jonas B. Nielsen, (jonasbn) - C<< <jonasbn@cpan.org> >>
 
 =head1 COPYRIGHT
 
-Business-DK-Phonenumber is (C) by Jonas B. Nielsen, (jonasbn) 2008-2014
+Business-DK-Phonenumber and related is (C) by Jonas B. Nielsen, (jonasbn) 2008-2014
 
 =head1 LICENSE
 
-Business-DK-Phonenumber is released under the artistic license 2.0
+Business-DK-Phonenumber and related is released under the Artistic License 2.0
 
 =cut
