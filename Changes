@@ -6,6 +6,8 @@ http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.sys
 
 --
 
+0.10 2015-08-01, maintenance release, update not required
+
 - Added MetaProvides to Dist::Zilla build, this should assist in addressing the
   issue listed on CPANTS, see also below
 
