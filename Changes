@@ -5,6 +5,8 @@ Project site changelog:
 http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
 --
 
+- Added MetaProvides to Dist::Zilla build
+
 - Prerequisites split into runtime and test
 
 
