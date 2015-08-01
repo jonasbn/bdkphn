@@ -7,7 +7,7 @@ use Carp qw(croak);
 use base qw(Exporter);
 use 5.008;
 
-$VERSION = '0.09';
+$VERSION = '0.10';
 @EXPORT_OK
     = qw(validate render generate validate_template TRUE FALSE DK_PREFIX  DEFAULT_TEMPLATE);
 
@@ -165,7 +165,7 @@ Business::DK::Phonenumber - Danish telephone number validator/formatter
 
 =head1 VERSION
 
-This documentation describes version 0.09
+This documentation describes version 0.10
 
 =head1 SYNOPSIS
 

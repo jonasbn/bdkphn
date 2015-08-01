@@ -6,7 +6,7 @@ use vars qw($VERSION @EXPORT_OK);
 use Business::DK::Phonenumber qw(validate render);
 use base qw(Exporter);
 
-$VERSION   = '0.09';
+$VERSION   = '0.10';
 @EXPORT_OK = qw(valid_dk_phonenumber match_dk_phonenumber);
 
 use constant VALID   => 1;
@@ -50,7 +50,7 @@ Data::FormValidator::Constraints::Business::DK::Phonenumber - a DFV constraints 
 
 =head1 VERSION
 
-This documentation describes version 0.09
+This documentation describes version 0.10
 
 =head1 SYNOPSIS
 

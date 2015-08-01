@@ -7,7 +7,7 @@ use Carp qw(croak);
 use Business::DK::Phonenumber
     qw(validate render validate_template DEFAULT_TEMPLATE DK_PREFIX TRUE FALSE);
 
-$VERSION = '0.09';
+$VERSION = '0.10';
 
 ## no critic (ValuesAndExpressions::ProhibitEmptyQuotes, ValuesAndExpressions::ProhibitInterpolationOfLiterals)
 use overload "" => \&render;
@@ -103,7 +103,7 @@ Class::Business::DK::Phonenumber - class to model, validate and format Danish te
 
 =head1 VERSION
 
-This documentation describes version 0.09
+This documentation describes version 0.10
 
 =head1 SYNOPSIS
 
