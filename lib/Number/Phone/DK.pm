@@ -5,7 +5,7 @@ use warnings;
 use Business::DK::Phonenumber qw(validate render);
 use Carp qw(croak);
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 ##no critic (Subroutines::ProhibitExplicitReturnUndef)
 
@@ -97,6 +97,10 @@ sub translates_to { return undef; }
 __END__
 
 =pod
+
+=head1 VERSION
+
+This documentation describes version 0.10
 
 =head2 areacode
 
