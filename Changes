@@ -3,11 +3,15 @@ Changes file for Business::DK::Phonenumber
 Project site changelog:
 
 http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
+
 --
 
-- Added MetaProvides to Dist::Zilla build
+- Added MetaProvides to Dist::Zilla build, this should assist in addressing the
+  issue listed on CPANTS, see also below
 
-- Prerequisites split into runtime and test
+- Prerequisites split into runtime and test, addressing issue listed on CPAN
+
+  Ref: http://cpants.cpanauthors.org/dist/Business-DK-Phonenumber-0.09
 
 
 0.09 2014-09-02, maintenance release, update not required
