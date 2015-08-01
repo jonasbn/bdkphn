@@ -3,6 +3,10 @@ Changes file for Business::DK::Phonenumber
 Project site changelog:
 
 http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
+--
+
+- Prerequisites split into runtime and test
+
 
 0.09 2014-09-02, maintenance release, update not required
 
