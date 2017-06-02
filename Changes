@@ -1,10 +1,16 @@
 Changes file for Business::DK::Phonenumber
 
-Project site changelog:
+HEAD
 
-http://logicLAB.jira.com/browse/BDKPHN#selectedTab=com.atlassian.jira.plugin.system.project%3Achangelog-panel
+- Exchanged CJM´s:
+  https://metacpan.org/pod/Dist::Zilla::Plugin::VersionFromModule
 
---
+  For Dave Rolskys:
+  https://metacpan.org/pod/Dist::Zilla::Plugin::VersionFromMainModule
+
+  There are some deprecation notices from Dist::Zilla making tests fail
+  see XDG's PR: https://github.com/madsen/dist-zilla-plugins-cjm/pull/5
+
 
 0.10 2015-08-01, maintenance release, update not required
 
